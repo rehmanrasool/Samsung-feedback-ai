@@ -1,0 +1,47 @@
+{
+  "0": {
+    "feedback_count": 180,
+    "sample_feedback": [
+      "samsung fridge was delivered damaged and they promised me , they will do the replacement and the last date was 6th August. my repeated messages no response, I don't have any way other than to move legal action",
+      "very poor customer care service post purchasing. they will do everything to make you purchase products from their application and once it is done and if you face any issues, they will show their real face."
+    ],
+    "keywords": [
+      "samsung warranty",
+      "samsung fridge",
+      "refrigerator samsung"
+    ],
+    "category": "Product",
+    "module": "Mobile App",
+    "severity_score": 10
+  },
+  "1": {
+    "feedback_count": 93,
+    "sample_feedback": [
+      "amazing super",
+      "very bad service"
+    ],
+    "keywords": [
+      "exchange phones",
+      "offer delivery",
+      "phones coupon"
+    ],
+    "category": "Platform",
+    "module": "Delivery",
+    "severity_score": 10
+  },
+  "2": {
+    "feedback_count": 69,
+    "sample_feedback": [
+      "cannot select unidays option for student discount while in this app during purchase of phone or tab",
+      "unable to use points"
+    ],
+    "keywords": [
+      "app unable",
+      "app issue",
+      "problem app"
+    ],
+    "category": "Product",
+    "module": "Mobile App",
+    "severity_score": 10
+  }
+}

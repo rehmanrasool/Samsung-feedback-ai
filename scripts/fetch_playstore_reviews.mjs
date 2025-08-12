@@ -16,7 +16,7 @@ async function fetchReviews(){
 const results =await gplay.reviews({
   appId: 'com.samsung.ecomm.global.in',
   sort: gplay.sort.NEWEST,
-  num:1000,
+  num:5000,
   throttle:10
 });
 fs.writeFileSync('bad_reviews.json',JSON.stringify(results,null,2));

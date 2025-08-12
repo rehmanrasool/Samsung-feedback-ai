@@ -92,6 +92,8 @@ def main():
             upsert_classified(row)
             classified.append(row)
 
+
+
     # export classified and uncertain files
     ts = datetime.utcnow().strftime("%Y%m%d%H%M%S")
     out_all = os.path.join(EXPORT_DIR, f"classified_reviews_{ts}.json")
@@ -101,9 +103,49 @@ def main():
     with open(out_uncertain, "w", encoding="utf-8") as f:
         json.dump(uncertain, f, indent=2, ensure_ascii=False)
 
+#insert_into_classified_reviews(classified_reviews)
+
     print(f"Classified {len(classified)} reviews (saved to DB).")
     print(f"Marked {len(uncertain)} reviews as uncertain (saved to {out_uncertain}).")
     print(f"Full classified export: {out_all}")
 
+
+
+
+
+
+
 if __name__ == "__main__":
     main()
+
+
+
+import psycopg2
+from datetime import datetime
+
+def insert_into_classified_reviews(classified_data):
+    conn = psycopg2.connect(
+        dbname="samsung_feedback",
+        user="d2c-rahiman.s",  # e.g. 'd2c-rahiman.s'
+        password="",          # if you have one, else keep empty
+        host="localhost",
+        port=5432
+    )
+    cur = conn.cursor()
+
+    for review in classified_data:
+        cur.execute("""
+            INSERT INTO classified_reviews (text, score, review_date, category, source, created_at)
+            VALUES (%s, %s, %s, %s, %s, %s)
+        """, (
+            review['text'],
+            review['score'],
+            review['date'],
+            review['category'],
+            review['source'],
+            datetime.utcnow()
+        ))
+    
+    conn.commit()
+    cur.close()
+    conn.close()
